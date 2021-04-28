@@ -1,0 +1,29 @@
+{% load static %}
+
+<html>
+<head>
+    <title>Daniel's Blog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body>
+
+<header>
+    <div class="nav-left">
+        <h1><a href="{% url 'home' %}">{{ request.user }}, Welcome to Daniel's personal Blog</a></h1>
+    </div>
+
+    <div class="nav-right">
+    <span><a href="{% url 'post_new' %}"> New Blog Post</a></span>
+    <span id="logout-button"><a href="{% url 'blog_login' %}" style="padding-left:20px; color: orange">Logout</a></span>
+
+    </div>
+</header>
+
+
+{% block content %}
+    
+{% endblock %}
+    
+</body>
+</html>
