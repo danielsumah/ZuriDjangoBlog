@@ -1,6 +1,6 @@
 # Main Blog views modules
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 # Access Modules
 from django.contrib.auth import authenticate, login, logout
@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 #  Form creation module
-from .forms import CreateUserForm
+from .forms import CreateUserForm, CreateProductForm
 # Models
 from .models import Post
 from.models import Comment
@@ -22,23 +22,43 @@ class BlogCommentView(ListView):
     model = Comment
     template_name = 'post_comment_view.html'
     
-class BlogListView(ListView):
-    # login_url = '/blog_login/'
-    # redirect_field_name = 'home'
 
-    model = Post
-    template_name = "home.html"
-
-
-class BlogDetailView(DetailView):
-    model = Post
-    template_name = 'post_detail.html'
+def blog_list_view(request):
+    posts = Post.objects.all()
+    
+    context = {
+        'posts': posts
+    }
+    return render(request, 'home.html', context)
 
 
-class BlogCreateView(CreateView):
-    model = Post
-    template_name = 'post_new.html'
-    fields = ['title', 'author', 'body']
+
+def blog_detail_view(request, my_id):
+    # posts = Post.objects.get(id=my_id)
+    posts = get_object_or_404(Post, id=my_id)
+    
+    context = {
+        'post': posts
+    }
+    return render(request, 'post_detail.html', context)
+
+
+# class BlogCreateView(CreateView):
+#     model = Post
+#     template_name = 'post_new.html'
+#     fields = ['title', 'author', 'body']
+
+def blog_create_view(request):
+    form = CreateProductForm(request.POST or None)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            form = CreateProductForm()
+            # messages.success(request, 'New Product Created')
+            # return redirect('post_detail')
+            
+    context = {'form': form}
+    return render(request, 'post_new.html', context)
 
 
 class BlogUpdateView(UpdateView):
