@@ -1,6 +1,6 @@
 # ZuriDjangoBlog
 
-Linked to deployed app: https://danielsumahzblog.herokuapp.com/
+Linked to deployed app: start buy logining in or creating an account https://danielsumahzblog.herokuapp.com/login/
 
 This blog app automatically logs you in as an anonymous user, 
 
