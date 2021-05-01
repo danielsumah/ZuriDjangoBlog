@@ -43,19 +43,12 @@ def blog_detail_view(request, my_id):
     return render(request, 'post_detail.html', context)
 
 
-# class BlogCreateView(CreateView):
-#     model = Post
-#     template_name = 'post_new.html'
-#     fields = ['title', 'author', 'body']
-
 def blog_create_view(request):
     form = CreateProductForm(request.POST or None)
     if request.method == 'POST':
         if form.is_valid():
             form.save()
             form = CreateProductForm()
-            # messages.success(request, 'New Product Created')
-            # return redirect('post_detail')
             
     context = {'form': form}
     return render(request, 'post_new.html', context)
@@ -66,6 +59,10 @@ class BlogUpdateView(UpdateView):
     template_name = 'post_edit.html'
     fields = ['title', 'body']
 
+def blog_update_view(request):
+
+    context = {}
+    return render(request, 'post_edit.html', context)
 
 class BlogDeleteView(DeleteView):
     model = Post
