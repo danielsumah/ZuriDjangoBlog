@@ -25,3 +25,4 @@ class CreateUserForm(UserCreationForm):
             'password1', 
             'password2'
             ]
+
