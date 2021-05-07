@@ -1,0 +1,1 @@
+web: gunicorn sumahwrites.wsgi --log-file -
