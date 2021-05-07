@@ -1,7 +1,8 @@
 #Simple Blog App
 
 You can use this app here  https://sumahwrites.herokuapp.com/
-        - create an account and login to be able to post comments.
+        
+       - create an account and login to be able to post comments.
         - Login with superuser credentials to be able to create, update and delete posts.
 
 Also, the code for the deployed app is not on the main branch, switch to branch named 'Blog-Version-2' to get working code.
