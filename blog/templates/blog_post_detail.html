@@ -11,7 +11,7 @@
     
     {% if request.user.is_authenticated %}
         
-        {% if request.user.name == 'admin' %}
+        {% if request.user.is_superuser %}
             <span>
                 <a href="{% url 'blog:blog_post_update_url' slug=post.slug %}" style="color: Orange; margin-right: 40px;">Update Post</a>
                 <a href="{% url 'blog:blog_post_delete_url' slug=post.slug %}" style="color: red;">Delete Post</a>
