@@ -5,7 +5,7 @@ You can use this app here  https://sumahwrites.herokuapp.com/
        - create an account and login to be able to post comments.
         - Login with superuser credentials to be able to create, update and delete posts.
 
-Also, the code for the deployed app is not on the main branch, switch to branch named 'Blog-Version-2' to get working code.
+Also, the code for the deployed app is not on the main branch, switch to branch named 'Blog-Version-2' to get working code. You can get this using this link https://github.com/danielsumah/ZuriDjangoBlog/tree/Blog-Version-2
 
 Features of this app:
 1. Allows users to view and comment on blog posts
